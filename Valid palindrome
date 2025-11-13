@@ -1,3 +1,4 @@
+#These is a brute force approach having time complexity O(n^2)
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         if len(s)==0:
@@ -12,4 +13,19 @@ class Solution:
                 return False
             left += 1
             right -= 1
+        return True
+# in below the optimal approach 
+#we use two pointer technique to solve these there is some edge cases too so we have to solve that too
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        left,right = 0,len(s)-1
+        while left < right:
+            while  left < right and not s[left].isalnum():
+                left += 1
+            while left < right and not s[right].isalnum():
+                right -= 1
+            if s[left].lower() != s[right].lower():
+                return False
+            left +=1
+            right -=1
         return True
