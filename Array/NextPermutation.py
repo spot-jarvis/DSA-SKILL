@@ -6,7 +6,7 @@ class Solution:
         n = len(nums)
         i = n-2
         #finding the pivot value 
-        while i >=0 and nums[i] > nums[i+1]:
+        while i >=0 and nums[i] >= nums[i+1]:
             i-=1
         if i < 0:
             return nums.reverse()
