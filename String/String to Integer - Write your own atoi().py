@@ -1,28 +1,21 @@
 class Solution:
-    def myAtoi(self, s):
-        # Code here
-        n = len(s)
-        res = 0
-        INT_MAX = 2**31 - 1
-        INT_MIN = -2**31
-        i =0
-        sign = 1
-        while i <= n and s[i] == " ":
+    def myAtoi(self, s: str) -> int:
+        result,sign = 0,1
+        minimum,maximum = -2**31,2**31-1
+        i,n = 0, len(s)
+
+        while i < n and s[i] == " ":
             i+=1
-            
-        if i <= n and s[i] =='+' or s[i] == '-':
+
+        if i< n and s[i] in '+-':
             if s[i] == '-':
                 sign = -1
             i+=1
-            
-        while i<n and s[i].isdigit():
-            res = res*10 +int(s[i])
+        while i<n  and s[i].isdigit():
+            result = result * 10 +int(s[i])
             i+=1
-            
         
-        if res * sign < INT_MIN :
-            return INT_MIN
-        if res* sign > INT_MAX:
-            return INT_MAX
-        
-        return res*sign
+        if result*sign < minimum : return minimum
+        if result *sign > maximum : return maximum
+
+        return result*sign
