@@ -11,8 +11,9 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        prev = None
-        curr = slow
+
+        prev,curr = None,slow
+        
         while curr:
             Nextlist = curr.next
             curr.next = prev
