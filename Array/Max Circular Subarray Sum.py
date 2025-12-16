@@ -22,3 +22,16 @@ class Solution:
         circularSum = totalSum - minimum 
         return max(circularSum , maximum )
             
+# same way 
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        GlobalMax , GlobalMin = nums[0],nums[0]
+        currMin = currMax = 0
+        TotalSum = 0
+        for num in nums:
+            currMin = min(num,currMin+num)
+            currMax = max(num,currMax+num)
+            TotalSum += num
+            GlobalMax = max(GlobalMax,currMax)
+            GlobalMin = min(GlobalMin,currMin)
+        return max(GlobalMax,TotalSum - GlobalMin) if GlobalMax > 0 else GlobalMax
