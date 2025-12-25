@@ -29,3 +29,4 @@ class Solution:
             left +=1
             right -=1
         return True
+# by these we can automatically check and remove the spaces and other char 
