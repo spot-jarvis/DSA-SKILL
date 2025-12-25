@@ -30,8 +30,8 @@ class Solution:
         TotalSum = 0
         for num in nums:
             currMin = min(num,currMin+num)
-            currMax = max(num,currMax+num)
-            TotalSum += num
-            GlobalMax = max(GlobalMax,currMax)
             GlobalMin = min(GlobalMin,currMin)
+            currMax = max(num,currMax+num)
+            GlobalMax = max(GlobalMax,currMax)
+            TotalSum += num
         return max(GlobalMax,TotalSum - GlobalMin) if GlobalMax > 0 else GlobalMax
