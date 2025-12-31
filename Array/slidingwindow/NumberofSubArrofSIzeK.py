@@ -13,3 +13,20 @@ class Solution:
                 result += 1
             left += 1
         return result
+    
+    # These is the sliding window concept
+
+    class Solution:
+    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+        #sum of k elements >= threshold * k 
+        threshold *= k
+
+        res = currsum = 0
+
+        for right in range(len(arr)):
+            currsum += arr[right]
+            if right >= k-1:
+                res += currsum >= threshold
+                currsum -= arr[right- k+1]
+        
+        return res 
