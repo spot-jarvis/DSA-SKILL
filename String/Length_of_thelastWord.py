@@ -12,4 +12,9 @@ class Solution:
         
         return cnt
     
-    
+# one line solving 
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+
+        return len(s.split().pop())
