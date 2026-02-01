@@ -23,17 +23,16 @@ class Solution:
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-         freq = {}
-         result = []
-         for word in strs:
-             letters = list(word)
-             letter = sorted(letters)
-             key = "".join(letter)
-             if key not in freq:
-                 freq[key] = []
-             freq[key].append(word)
+        freq = {}
+        res = []
 
+        for word in strs :
+            key  = "".join(sorted(list(word)))
+            if key not in freq:
+                freq[key] = []
+            freq[key].append(word)
         
-         for key,value in freq.items():
-             result.append(value)
-         return result
+        for key , value in freq.items():
+            res.append(value)
+        
+        return res
